@@ -1,16 +1,44 @@
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+
+import { NoopAnimationsModule } from '@angular/platform-browser/animations';
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
+import { MatAutocompleteModule, MatButtonModule, MatButtonToggleModule, 
+  MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
+  MatDialogModule, MatExpansionModule, MatGridListModule, MatIconModule, 
+  MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule,
+  MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, 
+  MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, 
+  MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, 
+  MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule } from '@angular/material';
 
+import { FlexLayoutModule } from '@angular/flex-layout';
+
+import { FormsModule } from '@angular/forms';
+import 'hammerjs';
 
 import { AppComponent } from './app.component';
+import { TaskComponent } from './task/task.component';
 
 
 @NgModule({
   declarations: [
-    AppComponent
+    AppComponent,
+    TaskComponent,
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    BrowserAnimationsModule,
+    FormsModule,
+    FlexLayoutModule,
+    MatAutocompleteModule, MatButtonModule, MatButtonToggleModule, 
+        MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
+        MatDialogModule, MatExpansionModule, MatGridListModule, MatIconModule, 
+        MatInputModule, MatListModule, MatMenuModule, MatNativeDateModule,
+        MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, 
+        MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, 
+        MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, 
+        MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule
   ],
   providers: [],
   bootstrap: [AppComponent]
