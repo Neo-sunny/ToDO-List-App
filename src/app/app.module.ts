@@ -19,7 +19,8 @@ import 'hammerjs';
 
 import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
-
+import { STodoService } from './services/s-todo.service';
+import { HttpModule } from '@angular/http';
 
 @NgModule({
   declarations: [
@@ -31,6 +32,7 @@ import { TaskComponent } from './task/task.component';
     BrowserAnimationsModule,
     FormsModule,
     FlexLayoutModule,
+    HttpModule,
     MatAutocompleteModule, MatButtonModule, MatButtonToggleModule, 
         MatCardModule, MatCheckboxModule, MatChipsModule, MatDatepickerModule,
         MatDialogModule, MatExpansionModule, MatGridListModule, MatIconModule, 
@@ -40,7 +42,7 @@ import { TaskComponent } from './task/task.component';
         MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, 
         MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule
   ],
-  providers: [],
+  providers: [STodoService],
   bootstrap: [AppComponent]
 })
 export class AppModule { }

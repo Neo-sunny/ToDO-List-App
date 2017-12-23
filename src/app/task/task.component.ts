@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { Task } from '../shared/task';
-
+import { STodoService } from '../services/s-todo.service';
 
 @Component({
   selector: 'app-task',
@@ -9,31 +9,42 @@ import { Task } from '../shared/task';
 })
 export class TaskComponent implements OnInit {
 
-  taskStatus = [
-    {value: 'starting', viewValue: 'Starting'},
-    {value: 'inProgress', viewValue: 'In Progress'},
-    {value: 'completed', viewValue: 'Completed'}
-  ];
+  gettasks: Task[]=[];
   taskName: String;
   status: String;
   dueDate: Date;
+  selected = '';
   tasks: Task[] =[];
 
-  constructor() { }
+  constructor(private todoService:STodoService) { }
 
   createTask(){
    let  ntask: Task={
     name: this.taskName,
     DueDate: this.dueDate,
-    status: this.status
+    status: this.selected,
      };
     this.tasks.push(ntask);
     
-  console.log(this.tasks[0].name);
-  console.log(this.tasks);
+    this.todoService.createNewTask(ntask).subscribe(
+      data => {
+        console.log("Task Added");
+      }
+    )
     this.taskName=this.status='';
   }
-  ngOnInit() {
-  }
+getTasks(){
+  this.todoService.getTodos().subscribe(todos => this.gettasks=todos);;
+}
+deleteTask(){
+  console.log("Delete Task");
+this.todoService.deleteTasks().subscribe( tasks =>{
+  console.log(tasks)
+});
+
+}
+updateTask(){}
+
+  ngOnInit() { this.getTasks()}
 
 }

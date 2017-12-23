@@ -1,22 +1,32 @@
+<li *ngFor="let t of gettasks">
+  <span> <b> Name: </b>  {{ t.name }}  || </span>
+  <span>  <b> Status: </b>  {{ t.status }}  || </span>
+  <span>  <b> DueDate: </b>  {{ t.DueDate }}  || </span>
+</li>
+
+
 <li *ngFor="let t of tasks">
     <span> <b> Name: </b>  {{ t.name }}  || </span>
     <span>  <b> Status: </b>  {{ t.status }}  || </span>
-    
+    <span>  <b> DueDate: </b>  {{ t.DueDate|date:'medium' }}  || </span>
 </li>
 
 <mat-form-field class="example-full-width">
     <input matInput [(ngModel)]="taskName" placeholder="Enter Task" >
 </mat-form-field>
-<mat-form-field class="example-full-width">
-    <input matInput [(ngModel)]="status" placeholder="Enter Status" >
-</mat-form-field>
+
 <mat-form-field>
-    <mat-select placeholder="Task Status">
-      <mat-option *ngFor="let stat of taskStatus" [value]="stat.value">
-        {{ stat.viewValue }}
-      </mat-option>
+    <mat-select [(value)]="selected"  placeholder="Enter Status">
+      <mat-option>None</mat-option>
+      <mat-option value="Starting">Starting</mat-option>
+      <mat-option value="InProgress">In Progress</mat-option>
+      <mat-option value="Completed">Completed</mat-option>
     </mat-select>
-</mat-form-field>
+  </mat-form-field>
+  
+  <p>You selected: {{selected}}</p>
+  
+
 <mat-form-field>
     <input matInput [matDatepicker]="picker" [(ngModel)]="dueDate" placeholder="Choose a Due Date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -25,5 +35,8 @@
 
 <div class="button-row">
        <button mat-raised-button color="primary" (click)="createTask()">Add Task</button>  
+</div>
+<div class="button-row">
+  <button mat-raised-button color="primary" (click)="deleteTask()">Delete All Tasks</button>  
 </div>
 
