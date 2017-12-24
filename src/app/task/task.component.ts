@@ -28,13 +28,15 @@ export class TaskComponent implements OnInit {
     
     this.todoService.createNewTask(ntask).subscribe(
       data => {
+        console.log(this.getTasks());
         console.log("Task Added");
       }
     )
     this.taskName=this.status='';
   }
 getTasks(){
-  this.todoService.getTodos().subscribe(todos => this.gettasks=todos);;
+  this.todoService.getTodos().subscribe(todos => this.gettasks=todos);
+  
 }
 deleteTask(){
   console.log("Delete Task");

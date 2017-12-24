@@ -1,15 +1,11 @@
+
 <li *ngFor="let t of gettasks">
   <span> <b> Name: </b>  {{ t.name }}  || </span>
   <span>  <b> Status: </b>  {{ t.status }}  || </span>
-  <span>  <b> DueDate: </b>  {{ t.DueDate }}  || </span>
+  <span>  <b> DueDate: </b>  {{ t.DueDate|date:'fullDate' }}  </span>
 </li>
 
-
-<li *ngFor="let t of tasks">
-    <span> <b> Name: </b>  {{ t.name }}  || </span>
-    <span>  <b> Status: </b>  {{ t.status }}  || </span>
-    <span>  <b> DueDate: </b>  {{ t.DueDate|date:'medium' }}  || </span>
-</li>
+<div class="container">
 
 <mat-form-field class="example-full-width">
     <input matInput [(ngModel)]="taskName" placeholder="Enter Task" >
@@ -22,11 +18,8 @@
       <mat-option value="InProgress">In Progress</mat-option>
       <mat-option value="Completed">Completed</mat-option>
     </mat-select>
-  </mat-form-field>
+</mat-form-field>
   
-  <p>You selected: {{selected}}</p>
-  
-
 <mat-form-field>
     <input matInput [matDatepicker]="picker" [(ngModel)]="dueDate" placeholder="Choose a Due Date">
     <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
@@ -36,7 +29,9 @@
 <div class="button-row">
        <button mat-raised-button color="primary" (click)="createTask()">Add Task</button>  
 </div>
+
+</div>
+
 <div class="button-row">
   <button mat-raised-button color="primary" (click)="deleteTask()">Delete All Tasks</button>  
 </div>
-
