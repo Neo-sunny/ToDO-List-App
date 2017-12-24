@@ -14,22 +14,20 @@ export class TaskComponent implements OnInit {
   status: String;
   dueDate: Date;
   selected = '';
-  tasks: Task[] =[];
 
   constructor(private todoService:STodoService) { }
 
   createTask(){
    let  ntask: Task={
-    name: this.taskName,
+    name: this.taskName.trim(),
     DueDate: this.dueDate,
     status: this.selected,
-     };
-    this.tasks.push(ntask);
+    };
     
     this.todoService.createNewTask(ntask).subscribe(
       data => {
-        console.log(this.getTasks());
-        console.log("Task Added");
+        this.getTasks();
+        console.log("Task Added "+ data.name);
       }
     )
     this.taskName=this.status='';
@@ -38,15 +36,20 @@ getTasks(){
   this.todoService.getTodos().subscribe(todos => this.gettasks=todos);
   
 }
-deleteTask(){
+deleteTasks(){
   console.log("Delete Task");
-this.todoService.deleteTasks().subscribe( tasks =>{
-  console.log(tasks)
+  this.todoService.deleteTasks().subscribe( tasks =>{
+    this.getTasks();
+    console.log(tasks)
 });
 
 }
 updateTask(){}
-
+deleteTask(task:Task):void {
+ 
+  this.todoService.deleteTask(task.name.trim()).subscribe( ()=>{this.getTasks();  console.log(task.name +' task deleted');}
+  );  
+}
   ngOnInit() { this.getTasks()}
 
 }

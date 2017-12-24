@@ -1,8 +1,9 @@
 
-<li *ngFor="let t of gettasks">
+<li *ngFor="let t of gettasks" >
   <span> <b> Name: </b>  {{ t.name }}  || </span>
   <span>  <b> Status: </b>  {{ t.status }}  || </span>
   <span>  <b> DueDate: </b>  {{ t.DueDate|date:'fullDate' }}  </span>
+  <button  (click)="deleteTask(t)">Delete Task</button>  
 </li>
 
 <div class="container">
@@ -33,5 +34,5 @@
 </div>
 
 <div class="button-row">
-  <button mat-raised-button color="primary" (click)="deleteTask()">Delete All Tasks</button>  
+  <button mat-raised-button color="primary" (click)="deleteTasks()">Delete All Tasks</button>  
 </div>

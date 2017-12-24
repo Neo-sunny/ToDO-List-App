@@ -46,5 +46,14 @@ export class STodoService {
         });
     }
 
+    deleteTask(name:String){
+        return this.http.delete("http://localhost:3000/todos/" + name )
+        .map((res:any) => {
+            return res.json();
+        })
+        .catch((error:any) => {
+            return Observable.throw(error.json ? error.json().error : error || 'Server error')
+        });
     }
+    
 }
