@@ -1,38 +1,46 @@
 
-<li *ngFor="let t of gettasks" >
-  <span> <b> Name: </b>  {{ t.name }}  || </span>
-  <span>  <b> Status: </b>  {{ t.status }}  || </span>
-  <span>  <b> DueDate: </b>  {{ t.DueDate|date:'fullDate' }}  </span>
-  <button  (click)="deleteTask(t)">Delete Task</button>  
-</li>
+<mat-sidenav-container class="example-container">
+    <mat-sidenav mode="side" opened="true">Sidenav content</mat-sidenav>
 
-<div class="container">
+  <mat-sidenav-content>
 
-<mat-form-field class="example-full-width">
-    <input matInput [(ngModel)]="taskName" placeholder="Enter Task" >
-</mat-form-field>
+    <li *ngFor="let t of gettasks" >
+        <span> <b> Name: </b>  {{ t.name }}  || </span>
+        <span>  <b> Status: </b>  {{ t.status }}  || </span>
+        <span>  <b> DueDate: </b>  {{ t.DueDate|date:'fullDate' }}  </span>
+        <button  (click)="deleteTask(t)">Delete Task</button>  
+    </li>
 
-<mat-form-field>
-    <mat-select [(value)]="selected"  placeholder="Enter Status">
-      <mat-option>None</mat-option>
-      <mat-option value="Starting">Starting</mat-option>
-      <mat-option value="InProgress">In Progress</mat-option>
-      <mat-option value="Completed">Completed</mat-option>
-    </mat-select>
-</mat-form-field>
-  
-<mat-form-field>
-    <input matInput [matDatepicker]="picker" [(ngModel)]="dueDate" placeholder="Choose a Due Date">
-    <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
-    <mat-datepicker #picker></mat-datepicker>
-  </mat-form-field>
+    <div class="container">
+      <mat-form-field class="example-full-width">
+          <input matInput [(ngModel)]="taskName" placeholder="Enter Task" >
+      </mat-form-field>
 
-<div class="button-row">
-       <button mat-raised-button color="primary" (click)="createTask()">Add Task</button>  
-</div>
+      <mat-form-field>
+          <mat-select [(value)]="selected"  placeholder="Enter Status">
+            <mat-option>None</mat-option>
+            <mat-option value="Starting">Starting</mat-option>
+            <mat-option value="InProgress">In Progress</mat-option>
+            <mat-option value="Completed">Completed</mat-option>
+          </mat-select>
+      </mat-form-field>
 
-</div>
+      <mat-form-field>
+          <input matInput [matDatepicker]="picker" [(ngModel)]="dueDate" placeholder="Choose a Due Date">
+          <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
+          <mat-datepicker #picker></mat-datepicker>
+        </mat-form-field>
 
-<div class="button-row">
-  <button mat-raised-button color="primary" (click)="deleteTasks()">Delete All Tasks</button>  
-</div>
+        <div class="button-row">
+            <button mat-raised-button color="primary" (click)="createTask()">Add Task</button>  
+        </div>
+
+    </div>
+     <div class="button-row">
+        <button mat-raised-button color="primary" (click)="deleteTasks()">Delete All Tasks</button>  
+     </div>
+    </mat-sidenav-content>  
+    
+  </mat-sidenav-container>
+
+
