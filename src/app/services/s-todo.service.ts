@@ -16,9 +16,15 @@ export class STodoService {
     return body || { };
   }
 
-
+  getTodosByLabels(label:String):Observable<Task[]>{
+    return this.http.get('http://localhost:3000/todos/labels/'+label)
+    .map(res => { return res.json(); })
+    .catch( (error:any) => {
+        return Observable.throw(error.json ? error.json().error : error || 'Server error')
+    }  )
+  }
   getTodos(): Observable<Task[]>{
-    return  this.http.get('http://localhost:3000/' + 'todos')
+    return  this.http.get('http://localhost:3000/todos')
                       .map(res => { return res.json();  })
                       .catch((error:any) => {
                         return Observable.throw(error.json ? error.json().error : error || 'Server error')
