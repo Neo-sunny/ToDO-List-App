@@ -22,6 +22,7 @@ export class TaskComponent implements OnInit {
     name: this.taskName.trim(),
     DueDate: this.dueDate,
     status: this.selected,
+    label: this.label
     };
     
     this.todoService.createNewTask(ntask).subscribe(
