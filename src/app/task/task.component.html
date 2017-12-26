@@ -1,9 +1,4 @@
 
-<mat-sidenav-container class="example-container">
-    <mat-sidenav mode="side" opened="true">Sidenav content</mat-sidenav>
-
-  <mat-sidenav-content>
-
     <li *ngFor="let t of gettasks" >
         <span> <b> Name: </b>  {{ t.name }}  || </span>
         <span>  <b> Status: </b>  {{ t.status }}  || </span>
@@ -18,19 +13,23 @@
 
       <mat-form-field>
           <mat-select [(value)]="selected"  placeholder="Enter Status">
-            <mat-option>None</mat-option>
             <mat-option value="Starting">Starting</mat-option>
             <mat-option value="InProgress">In Progress</mat-option>
             <mat-option value="Completed">Completed</mat-option>
           </mat-select>
       </mat-form-field>
-
-      <mat-form-field>
+    <mat-form-field>
+            <mat-select [(value)]="label"  placeholder="Enter Label">
+                <mat-option value="personal">Personal</mat-option>
+                <mat-option value="work">Work</mat-option>
+            </mat-select>    
+    </mat-form-field> 
+    <mat-form-field>
           <input matInput [matDatepicker]="picker" [(ngModel)]="dueDate" placeholder="Choose a Due Date">
           <mat-datepicker-toggle matSuffix [for]="picker"></mat-datepicker-toggle>
           <mat-datepicker #picker></mat-datepicker>
-        </mat-form-field>
-
+    </mat-form-field>
+        
         <div class="button-row">
             <button mat-raised-button color="primary" (click)="createTask()">Add Task</button>  
         </div>
@@ -39,8 +38,6 @@
      <div class="button-row">
         <button mat-raised-button color="primary" (click)="deleteTasks()">Delete All Tasks</button>  
      </div>
-    </mat-sidenav-content>  
-    
-  </mat-sidenav-container>
+
 
 

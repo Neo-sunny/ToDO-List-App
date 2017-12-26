@@ -21,6 +21,7 @@ import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
 import { STodoService } from './services/s-todo.service';
 import { HttpModule } from '@angular/http';
+import { AppRoutingModule } from './/app-routing.module';
 
 @NgModule({
   declarations: [
@@ -40,7 +41,7 @@ import { HttpModule } from '@angular/http';
         MatPaginatorModule, MatProgressBarModule, MatProgressSpinnerModule, 
         MatRadioModule, MatRippleModule, MatSelectModule, MatSidenavModule, 
         MatSliderModule, MatSlideToggleModule, MatSnackBarModule, MatSortModule, 
-        MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule
+        MatTableModule, MatTabsModule, MatToolbarModule, MatTooltipModule, AppRoutingModule
   ],
   providers: [STodoService],
   bootstrap: [AppComponent]

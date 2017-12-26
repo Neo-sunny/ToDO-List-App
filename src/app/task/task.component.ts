@@ -14,7 +14,7 @@ export class TaskComponent implements OnInit {
   status: String;
   dueDate: Date;
   selected = '';
-
+  label = '';
   constructor(private todoService:STodoService) { }
 
   createTask(){
