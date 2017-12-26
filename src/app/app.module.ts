@@ -21,12 +21,14 @@ import { AppComponent } from './app.component';
 import { TaskComponent } from './task/task.component';
 import { STodoService } from './services/s-todo.service';
 import { HttpModule } from '@angular/http';
-import { AppRoutingModule } from './/app-routing.module';
+import { AppRoutingModule } from './app-routing/app-routing.module';
+import { LabelsComponent } from './labels/labels.component';
 
 @NgModule({
   declarations: [
     AppComponent,
     TaskComponent,
+    LabelsComponent,
   ],
   imports: [
     BrowserModule,
