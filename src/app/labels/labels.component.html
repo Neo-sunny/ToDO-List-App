@@ -1,0 +1,8 @@
+
+<li *ngFor="let t of gettasksByLabel" >
+        <span> <b> Name: </b>  {{ t.name }}  || </span>
+        <span>  <b> Status: </b>  {{ t.status }}  || </span>
+        <span>  <b> DueDate: </b>  {{ t.DueDate|date:'fullDate' }}  </span>
+        <span>  <b> Label: </b>  {{ t.label }}  </span>
+        <button  >Delete Task</button>  
+</li>
